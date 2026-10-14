@@ -747,9 +747,11 @@ if __name__ == "__main__":
     # summary printers below.
     client = MetaculusClient()
     if run_mode == "tournament":
+        # The locked forecasting-tools release still has CURRENT_AI_COMPETITION_ID
+        # set to the finished Summer 2026 season, so name the fall season directly.
         seasonal_tournament_reports = asyncio.run(
             template_bot.forecast_on_tournament(
-                client.CURRENT_AI_COMPETITION_ID, return_exceptions=True
+                "fall-futureeval-2026", return_exceptions=True
             )
         )
         minibench_reports = asyncio.run(
